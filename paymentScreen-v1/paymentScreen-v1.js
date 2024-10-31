@@ -1,6 +1,6 @@
 function processPayment() {
     // 여기에 토스페이먼츠 API 연동 코드 추가
-    var tossPayments = TossPayments('test_ck_P9BRQmyarYgzvyllMklN3J07KzLN'); // 발급받은 API 키로 초기화      //API 개별 연동 키 - 클라이언트 키   
+    var tossPayments = TossPayments('test_ck_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx'); // 발급받은 API 키로 초기화      //API 개별 연동 키 - 클라이언트 키   
 
     tossPayments.requestPayment('카드', {
         amount: 1000, // 결제 금액 (단위: 원)

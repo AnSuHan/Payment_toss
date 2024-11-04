@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>토스 간편결제 v2 구독</title>
+</head>
+<body>
+    <button id="button_payment">
+        결제하기
+    </button>
+
+    <!-- 토스 결제창 SDK import -->
+    <script>
+        // script 태그로 TossPayments.js를 동적으로 로드하고, 로딩이 완료되면 버튼 활성화
+        const script = document.createElement('script');
+        script.src = 'https://js.tosspayments.com/v2/standard';
+        script.onload = function() {
+            console.log('TossPayments.js가 로드되었습니다.');
+
+            // TossPayments.js 로드 후 결제 버튼 활성화
+            const payButton = document.getElementById('button_payment');
+            payButton.disabled = false;
+        };
+        script.onerror = function() {
+            console.error('TossPayments.js 로드에 실패했습니다.');
+        };
+        document.head.appendChild(script); // script 태그를 동적으로 추가
+    </script>
+    <script src="paymentScreen-v2.js"></script>
+</body>
+</html>

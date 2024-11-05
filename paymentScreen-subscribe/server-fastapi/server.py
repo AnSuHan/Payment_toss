@@ -57,26 +57,3 @@ async def process_payment(card_number: str, expiration_year: str, expiration_mon
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.post("/subscribe")
-async def subscribe(customer_key: str, billing_key: str, amount: float):
-    headers = {
-        "Authorization": f"Bearer {CLIENT_KEY}",
-        "Content-Type": "application/json"
-    }
-    
-    # 결제 요청 데이터
-    data = {
-        "customerKey": customer_key,
-        "billingKey": billing_key,
-        "amount": amount,
-    }
-    
-    # async with httpx.AsyncClient() as client:
-    #     response = await client.post(BILLING_API_URL, headers=headers, json=data)
-        
-    #     if response.status_code == 200:
-    #         return response.json()
-    #     else:
-    #         raise HTTPException(status_code=response.status_code, detail=response.json())

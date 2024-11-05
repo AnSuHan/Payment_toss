@@ -15,7 +15,8 @@
     <script>
         // script 태그로 TossPayments.js를 동적으로 로드하고, 로딩이 완료되면 버튼 활성화
         const script = document.createElement('script');
-        script.src = 'https://js.tosspayments.com/v2/standard';
+        script.src = "https://js.tosspayments.com/v1";
+        //script.src = 'https://js.tosspayments.com/v2/standard';
         script.onload = function() {
             console.log('TossPayments.js가 로드되었습니다.');
 

@@ -1,5 +1,4 @@
 var clientKey = 'test_ck_P9BRQmyarYgzvyllMklN3J07KzLN';
-var secretKey = base64('test_sk_BX7zk2yd8ynZbvQRJqPY3x9POLqK:')
 var tossPayments;
 
 function init() {
@@ -30,13 +29,19 @@ function processSubscribe() {
   };  
 
   billing('카드', jsons.card);
+  billingFastApi();
+}
+
+function billingFastApi() {
+
 }
 
 function billing(method, requestJson) {
   console.log(requestJson);
+  //fastAPI에서 카드 정보를 넘겨 빌링키를 받으면 requestBillingAuth()는 사용할 필요 없음
   tossPayments.requestBillingAuth(method, requestJson)
     .then(function (response) {
-      console.log("결제 요청 성공");
+      alert("결제 요청 성공 : ", response.billing);
     })
     .catch(function (error) {
       if (error.code === "USER_CANCEL") {
